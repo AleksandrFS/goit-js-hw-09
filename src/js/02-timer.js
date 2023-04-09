@@ -50,10 +50,10 @@ function onBtnStartClick() {
       clearInterval(intervalId);
       refs.inputDate.disabled = false;
       refs.btnStart.disabled = false;
-      refs.body.insertAdjacentHTML(
-        'beforeend',
-        '<iframe src="https://gifer.com/embed/2DV" width=480 height=216.960 frameBorder="0" allowFullScreen></iframe>'
-      );
+      // refs.body.insertAdjacentHTML(
+      //   'beforeend',
+      //   '<iframe src="https://gifer.com/embed/2DV" width=480 height=216.960 frameBorder="0" allowFullScreen></iframe>'
+      // );
       return;
     }
     updateTimer(convertMs(ms));
