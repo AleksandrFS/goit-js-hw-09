@@ -47,13 +47,13 @@ function onBtnStartClick() {
     const currentDate = Date.now();
     const ms = futureDate - currentDate;
     if (ms < 0) {
-      clearInterval(intervalId);
       refs.inputDate.disabled = false;
       refs.btnStart.disabled = false;
       refs.body.insertAdjacentHTML(
         'beforeend',
         '<iframe src="https://gifer.com/embed/2DV" width=480 height=216.960 frameBorder="0" allowFullScreen></iframe>'
       );
+      clearInterval(intervalId);
       return;
     }
     updateTimer(convertMs(ms));
