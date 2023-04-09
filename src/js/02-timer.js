@@ -1,5 +1,3 @@
-'use strict';
-
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 require('flatpickr/dist/themes/dark.css');
@@ -45,7 +43,7 @@ function onBtnStartClick() {
   refs.inputDate.disabled = true;
   refs.btnStart.disabled = true;
 
-  intervalId = setInterval(() => {
+  const intervalId = setInterval(() => {
     const currentDate = Date.now();
     const ms = futureDate - currentDate;
     if (ms < 0) {
