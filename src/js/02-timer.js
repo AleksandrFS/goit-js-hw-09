@@ -18,6 +18,9 @@ const refs = {
 
 refs.btnStart.disabled = true;
 
+refs.body.insertAdjacentHTML('beforeend', '<div id = "gif"><div/>');
+const gif = document.querySelector('#gif');
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -30,6 +33,9 @@ const options = {
       refs.btnStart.disabled = true;
     } else {
       refs.btnStart.disabled = false;
+    }
+    if (selectedDates[0] > new Date()) {
+      gif.innerHTML = '';
     }
   },
 };
@@ -47,13 +53,14 @@ function onBtnStartClick() {
     const currentDate = Date.now();
     const ms = futureDate - currentDate;
     if (ms < 0) {
+      clearInterval(intervalId);
       refs.inputDate.disabled = false;
       refs.btnStart.disabled = false;
-      refs.body.insertAdjacentHTML(
+      gif.insertAdjacentHTML(
         'beforeend',
         '<iframe src="https://gifer.com/embed/2DV" width=480 height=216.960 frameBorder="0" allowFullScreen></iframe>'
       );
-      clearInterval(intervalId);
+
       return;
     }
     updateTimer(convertMs(ms));
