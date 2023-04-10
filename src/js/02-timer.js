@@ -26,8 +26,7 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onClose(selectedDates) {},
-  onClose: function (selectedDates, dateStr, instance) {
+  onClose(selectedDates) {
     if (selectedDates[0] <= new Date()) {
       Notify.failure('Please choose a date in the future');
       refs.btnStart.disabled = true;
